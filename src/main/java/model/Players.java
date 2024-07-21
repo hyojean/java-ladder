@@ -20,6 +20,21 @@ public class Players {
         return playerNames.size();
     }
 
+    public Integer getPlayerIndexByName(String playerName) {
+        Integer index = playerNames.indexOf(playerName);
+        if (index == -1) {
+            throw new IllegalArgumentException("해당 플레이어는 게임에 참여하지 않은 플레이어입니다.");
+        }
+        return index;
+    }
+
+    public String getPlayerNameByIndex(int index) {
+        if (index < 0 || index >= playerNames.size()) {
+            throw new IndexOutOfBoundsException("유효하지 않은 플레이어 인덱스입니다.");
+        }
+        return playerNames.get(index);
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

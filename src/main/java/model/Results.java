@@ -10,6 +10,13 @@ public class Results {
         this.resultValues = resultValues;
     }
 
+    public String getResultByIndex(Integer index) {
+        if (index < 0 || index >= resultValues.size()) {
+            throw new IndexOutOfBoundsException("유효하지 않은 결과 인덱스입니다.");
+        }
+        return resultValues.get(index);
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
